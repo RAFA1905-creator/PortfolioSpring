@@ -1,5 +1,3 @@
-
-//Fade-in animaciones
 const elements = document.querySelectorAll('.fade-in');
 
 function checkVisibility() {
@@ -16,8 +14,6 @@ function checkVisibility() {
 window.addEventListener('scroll', checkVisibility);
 window.addEventListener('load', checkVisibility);
 
-
-//Scroll suave navbar
 document.querySelectorAll('a.nav-link').forEach(link => {
     link.addEventListener('click', function (e) {
         const target = document.querySelector(this.getAttribute('href'));
@@ -31,8 +27,6 @@ document.querySelectorAll('a.nav-link').forEach(link => {
     });
 });
 
-
-//Navbar efecto al hacer scroll
 const navbar = document.querySelector('.navbar');
 
 window.addEventListener('scroll', () => {

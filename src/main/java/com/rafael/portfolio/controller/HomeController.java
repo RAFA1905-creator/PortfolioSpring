@@ -35,7 +35,7 @@ public class HomeController {
     @GetMapping("/")
     public String home(Model model) {
 
-        model.addAttribute("info", infoService.findAll());
+        model.addAttribute("info", infoService.findFirst());
         model.addAttribute("experiencias", experienciaService.findAll());
         model.addAttribute("estudios", estudioService.findAll());
         model.addAttribute("proyectos", proyectoService.findAll());

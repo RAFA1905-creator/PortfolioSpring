@@ -19,6 +19,10 @@ public class InfoService {
         return repo.findAll();
     }
 
+    public Info findFirst() {
+        return repo.findAll().stream().findFirst().orElse(null);
+    }
+
     public Info findById(Long id) {
         return repo.findById(id).orElse(null);
     }
