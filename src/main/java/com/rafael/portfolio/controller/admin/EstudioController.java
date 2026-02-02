@@ -17,27 +17,25 @@ public class EstudioController {
     }
 
     @GetMapping
-    public String list(Model model) {
+    public String openForm(Model model) {
         model.addAttribute("estudios", service.findAll());
-        return "admin/estudio-list";
+        model.addAttribute("estudio", new Estudio());
+        return "admin/estudios-form";
     }
 
-    @GetMapping("/new")
-    public String createForm(Model model) {
-        model.addAttribute("estudio", new Estudio());
-        return "admin/estudio-form";
+
+    @GetMapping("/{id}/edit")
+    public String editForm(@PathVariable Long id, Model model) {
+        model.addAttribute("estudios", service.findAll());
+        model.addAttribute("estudio", service.findById(id));
+        return "admin/estudios-form";
     }
+
 
     @PostMapping
     public String save(@ModelAttribute Estudio estudio) {
         service.save(estudio);
         return "redirect:/admin/estudios";
-    }
-
-    @GetMapping("/{id}/edit")
-    public String editForm(@PathVariable Long id, Model model) {
-        model.addAttribute("estudio", service.findById(id));
-        return "admin/estudio-form";
     }
 
     @PostMapping("/{id}")
@@ -52,4 +50,6 @@ public class EstudioController {
         service.delete(id);
         return "redirect:/admin/estudios";
     }
+
 }
+
