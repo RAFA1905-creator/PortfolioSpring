@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body class="dark-mode">
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-dark bg-dark shadow-sm">
+    <div class="container">
+        <a class="navbar-brand fw-bold accent-text" href="/">Volver al Portfolio</a>
+        <span class="navbar-text text-light">Panel de Administración</span>
+    </div>
+</nav>
+
+<!-- CONTENIDO -->
+<div class="container mt-5 pt-4">
+
+    <h1 class="section-title">Panel de Administración</h1>
+
+    <div class="row g-4">
+
+        <!-- INFO -->
+        <div class="col-md-4">
+            <a href="/admin/info" class="text-decoration-none">
+                <div class="card card-dark p-4 text-center">
+                    <h4 class="accent-text">Información Personal</h4>
+                    <p class="mt-2">Editar nombre, descripción y foto.</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- EXPERIENCIA -->
+        <div class="col-md-4">
+            <a href="/admin/experiencia" class="text-decoration-none">
+                <div class="card card-dark p-4 text-center">
+                    <h4 class="accent-text">Experiencia</h4>
+                    <p class="mt-2">Gestionar trabajos y experiencia laboral.</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- ESTUDIOS -->
+        <div class="col-md-4">
+            <a href="/admin/estudios" class="text-decoration-none">
+                <div class="card card-dark p-4 text-center">
+                    <h4 class="accent-text">Estudios</h4>
+                    <p class="mt-2">Administrar formación académica.</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- PROYECTOS -->
+        <div class="col-md-4">
+            <a href="/admin/proyectos" class="text-decoration-none">
+                <div class="card card-dark p-4 text-center">
+                    <h4 class="accent-text">Proyectos</h4>
+                    <p class="mt-2">Crear y editar tus proyectos.</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- LENGUAJES -->
+        <div class="col-md-4">
+            <a href="/admin/lenguajes" class="text-decoration-none">
+                <div class="card card-dark p-4 text-center">
+                    <h4 class="accent-text">Lenguajes</h4>
+                    <p class="mt-2">Gestionar tecnologías y herramientas.</p>
+                </div>
+            </a>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

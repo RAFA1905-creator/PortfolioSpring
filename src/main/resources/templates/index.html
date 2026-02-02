@@ -82,7 +82,10 @@
                 <div class="card-body d-flex flex-column">
                     <h5 class="card-title accent-text" th:text="${pro.nombre}"></h5>
                     <p class="card-text flex-grow-1" th:text="${pro.descripcion}"></p>
-                    <a th:href="${pro.url}" class="btn btn-accent mt-auto" target="_blank">Ver proyecto</a>
+
+                    <!-- CAMBIO AQUÍ -->
+                    <a th:href="${pro.githubUrl}" class="btn btn-accent mt-auto" target="_blank">Ver proyecto</a>
+
                 </div>
             </div>
         </div>
