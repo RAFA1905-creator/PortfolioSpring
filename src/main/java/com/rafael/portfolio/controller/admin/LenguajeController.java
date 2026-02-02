@@ -17,14 +17,16 @@ public class LenguajeController {
     }
 
     @GetMapping
-    public String list(Model model) {
+    public String openForm(Model model) {
         model.addAttribute("lenguajes", service.findAll());
-        return "admin/lenguaje-list";
+        model.addAttribute("lenguaje", new Lenguaje());
+        return "admin/lenguaje-form";
     }
 
-    @GetMapping("/new")
-    public String createForm(Model model) {
-        model.addAttribute("lenguaje", new Lenguaje());
+    @GetMapping("/{id}/edit")
+    public String editForm(@PathVariable Long id, Model model) {
+        model.addAttribute("lenguajes", service.findAll());
+        model.addAttribute("lenguaje", service.findById(id));
         return "admin/lenguaje-form";
     }
 
@@ -32,12 +34,6 @@ public class LenguajeController {
     public String save(@ModelAttribute Lenguaje lenguaje) {
         service.save(lenguaje);
         return "redirect:/admin/lenguajes";
-    }
-
-    @GetMapping("/{id}/edit")
-    public String editForm(@PathVariable Long id, Model model) {
-        model.addAttribute("lenguaje", service.findById(id));
-        return "admin/lenguaje-form";
     }
 
     @PostMapping("/{id}")

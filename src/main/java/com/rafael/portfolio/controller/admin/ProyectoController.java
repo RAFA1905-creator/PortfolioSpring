@@ -17,14 +17,16 @@ public class ProyectoController {
     }
 
     @GetMapping
-    public String list(Model model) {
+    public String openForm(Model model) {
         model.addAttribute("proyectos", service.findAll());
-        return "admin/proyecto-list";
+        model.addAttribute("proyecto", new Proyecto());
+        return "admin/proyecto-form";
     }
 
-    @GetMapping("/new")
-    public String createForm(Model model) {
-        model.addAttribute("proyecto", new Proyecto());
+    @GetMapping("/{id}/edit")
+    public String editForm(@PathVariable Long id, Model model) {
+        model.addAttribute("proyectos", service.findAll());
+        model.addAttribute("proyecto", service.findById(id));
         return "admin/proyecto-form";
     }
 
@@ -32,12 +34,6 @@ public class ProyectoController {
     public String save(@ModelAttribute Proyecto proyecto) {
         service.save(proyecto);
         return "redirect:/admin/proyectos";
-    }
-
-    @GetMapping("/{id}/edit")
-    public String editForm(@PathVariable Long id, Model model) {
-        model.addAttribute("proyecto", service.findById(id));
-        return "admin/proyecto-form";
     }
 
     @PostMapping("/{id}")

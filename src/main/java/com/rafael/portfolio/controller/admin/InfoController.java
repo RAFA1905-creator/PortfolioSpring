@@ -19,10 +19,8 @@ public class InfoController {
     @GetMapping
     public String editForm(Model model) {
 
-        // Como solo hay un registro, lo obtenemos directamente
         Info info = service.findFirst();
 
-        // Si la tabla está vacía, creamos un registro nuevo
         if (info == null) {
             info = new Info();
         }

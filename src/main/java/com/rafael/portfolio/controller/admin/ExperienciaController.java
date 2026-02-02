@@ -17,14 +17,16 @@ public class ExperienciaController {
     }
 
     @GetMapping
-    public String list(Model model) {
+    public String openForm(Model model) {
         model.addAttribute("experiencias", service.findAll());
-        return "admin/experiencia-list";
+        model.addAttribute("experiencia", new Experiencia());
+        return "admin/experiencia-form";
     }
 
-    @GetMapping("/new")
-    public String createForm(Model model) {
-        model.addAttribute("experiencia", new Experiencia());
+    @GetMapping("/{id}/edit")
+    public String editForm(@PathVariable Long id, Model model) {
+        model.addAttribute("experiencias", service.findAll());
+        model.addAttribute("experiencia", service.findById(id));
         return "admin/experiencia-form";
     }
 
@@ -32,12 +34,6 @@ public class ExperienciaController {
     public String save(@ModelAttribute Experiencia experiencia) {
         service.save(experiencia);
         return "redirect:/admin/experiencias";
-    }
-
-    @GetMapping("/{id}/edit")
-    public String editForm(@PathVariable Long id, Model model) {
-        model.addAttribute("experiencia", service.findById(id));
-        return "admin/experiencia-form";
     }
 
     @PostMapping("/{id}")
